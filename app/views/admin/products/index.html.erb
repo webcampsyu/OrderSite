@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-3 col-sm-3">
+       <h4 class="ml-5 mb-5"><span class="title-custom px-4">商品一覧</span></h4>
+       
+    </div>
+    <div class="col-2 justify-content-end">
+     <%= link_to "登録",new_admin_product_path, class: "btn btn-outline-primary" %>
+    </div>
+    <table class="table table-striped">
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜き価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.name, admin_product_path(product) %></td>
+        <td>￥<%=product.price.to_s(:delimited) %>円</td>
+        <td><%= product.genre.name %></td>
+        <td>
+          <% if product.is_selled == "sale" %>
+            <p style = "color: #4ec51e;">在庫有り</p>
+          <% else %>
+            <p style = "color: #ff3838;">入荷待ち</p>
+          <% end %>
+        </td>
+      </tr>
+      <%end%>
+    </table>
+    </div>
+    <div class="pagination d-flex justify-content-center mb-4">
+    <%= paginate @items %>
+    </div>
+</div>
