@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show, :new, :create, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
     resources :orders, only: [:show, :update]
-    resources :order_details, only: [:update]
+    resources :order_details, only: [:show]
     resources :customers, only: [:index, :show]
   end
   #顧客用
