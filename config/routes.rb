@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :create, :update]
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:show]
-    resources :customers, only: [:index, :show]
+    resources :customers, only: [:index]
   end
   #顧客用
   devise_for :customers, skip: [:passwords], controllers: {
