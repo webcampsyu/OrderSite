@@ -1,0 +1,17 @@
+ja:
+  enums:
+    product:
+      sells_status:
+        sold_out: "入荷待ち"
+        sale: "在庫有り"
+        
+    devise:
+      failure:
+        invalid: "メールアドレスまたはパスワードが正しくありません"
+      registrations:
+        signed_up: "会員登録が完了しました"
+        updated: "パスワードの更新が完了しました"
+      sessions:
+        signed_in: "ログインが完了しました。"
+        signed_out: "ログアウトが完了しました。"
+        already_signed_out: "ログアウトが完了しました。"

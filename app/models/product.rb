@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   has_one_attached :image
   
+  enum sells_status: { sold_out: false, sale: true }
+  
   belongs_to :genre
   has_many :product_items, dependent: :destroy
   has_many :order_details, dependent: :destroy
