@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.references :genre, null: false, foreign_key: true
       t.string :name
       t.string :size
-      t.text :explanetion
+      t.text :explanation
       t.integer :price
       t.boolean :sells_status
 

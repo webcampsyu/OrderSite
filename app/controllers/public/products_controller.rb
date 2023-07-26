@@ -1,7 +1,7 @@
 class Public::ProductsController < ApplicationController
   
   def index
-    @items = Item.all
+    @products = Product.all
     @genres = Genre.all
   end 
   

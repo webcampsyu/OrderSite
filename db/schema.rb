@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2023_07_21_061631) do
     t.integer "genre_id", null: false
     t.string "name"
     t.string "size"
-    t.text "explanetion"
+    t.text "explanation"
     t.integer "price"
     t.boolean "sells_status"
     t.datetime "created_at", precision: 6, null: false

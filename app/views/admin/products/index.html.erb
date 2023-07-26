@@ -11,6 +11,7 @@
       <tr>
         <th>商品ID</th>
         <th>商品名</th>
+        <th>規格</th>
         <th>税抜き価格</th>
         <th>ジャンル</th>
         <th>ステータス</th>
@@ -19,10 +20,11 @@
       <tr>
         <td><%= product.id %></td>
         <td><%= link_to product.name, admin_product_path(product) %></td>
-        <td>￥<%=product.price.to_s(:delimited) %>円</td>
+        <td><%= product.size %></td>
+        <td>￥<%= product.price.to_s(:delimited) %>円</td>
         <td><%= product.genre.name %></td>
         <td>
-          <% if product.is_selled == "sale" %>
+          <% if product.sells_status == "sale" %>
             <p style = "color: #4ec51e;">在庫有り</p>
           <% else %>
             <p style = "color: #ff3838;">入荷待ち</p>
