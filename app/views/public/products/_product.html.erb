@@ -1,0 +1,25 @@
+<div class="row d-flex">
+  <% products.each do |product| %>
+    <div class ="col-md-3 mb-3 text-center p-2">
+            <div class="lineTrigger lineanime">
+              <div class="line2">
+                <div class="lineinappear">
+                  <a href="/products/<%= product.id %>" class="card h-100 m-0"
+                    style="background-color: #003366; text-decoration: none;">
+                    <%= image_tag product.get_image(150,150), class: "product-image-card mt-1 mx-auto" %><br>
+                    <div class ="card-body" style="background-color: #003366;">
+                    <p style = "color: #ffffff;"><strong class = "gold card-title"><%= product.name %></strong></p>
+                      <p style = "color: #ffffff;">¥<%= product.tax_price.to_s(:delimited) %></p>
+                    </div>
+                    <% if product.sells_status == "sale" %>
+          <p style = "color: #ffffff;">在庫有り</p>
+        <% else %>
+          <p style = "color: #ff3838;">入荷待ち</p>
+        <% end %>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+  <% end %>
+</div>

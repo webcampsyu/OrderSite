@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row ml-2">
+      <h2>
+        <strong>商品一覧</strong>
+      </h2>
+    </div>
+    <p>[全<%= Product.all.count %>件]</p>
+    <%= render 'product', products: @products %>
+    </div>
+  </div>
+</div>

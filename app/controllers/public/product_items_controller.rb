@@ -5,9 +5,9 @@ class Public::ProductItemsController < ApplicationController
     @total = @product_items.inject(0) { |sum, product_item| sum + product_item.subtotal }
   end 
   
-  def creta
+  def create
     @product_item = ProductItem.new(product_item_params)
-    if current_customer.product_items.fidn_by(product_id: @product_item.product_id)
+    if current_customer.product_items.find_by(product_id: @product_item.product_id)
       product_item = current_customer.product_items.find_by(product_id: @product_item.product_id)
       product_item.quantity += @product_item.quantity.to_i
       product_item.save

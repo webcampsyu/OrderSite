@@ -16,11 +16,11 @@ class Public::SiteNamesController < ApplicationController
       redirect_to site_names_path
     else 
       flash[:alert] = "現場名の登録に失敗しました"
-      @new_site_name = SiteName.new
       @site_names = SiteName.all
       render :index
     end 
   end 
+
   
   def update
     @site_name = SiteName.find(params[:id])
@@ -38,6 +38,5 @@ class Public::SiteNamesController < ApplicationController
     params.require(:site_name).permit(:name, :customer_id, :address)
   end 
   
-    
-  
 end
+

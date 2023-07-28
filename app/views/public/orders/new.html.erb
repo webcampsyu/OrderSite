@@ -1,0 +1,32 @@
+<div class="container">
+  <h5 class="ml-4 my-4"><strong style="background-color:#EEEEEE;">注文情報入力画面</strong></h5>
+  <%= form_with model: @order, url: confirm_orders_path do |f| %>
+    <strong>現場名</strong>
+    <!-- 登録先の現場 -->
+    <div class="ml-4 mt-2">
+      <%= f.radio_button :address_option, 1 %>
+      <%= f.label :order_site_name, "登録済現場から選択" %>
+      <div class="ml-3">
+        <%= f.collection_select :site_name_id, @site_names, :id, :name, { prompt: "現場名を選択してください" } if @site_names.present? %>
+      </div>
+    </div>
+    <!-- 新しいお届け先の登録 -->
+    <div class="ml-4 my-2">
+      <%= f.radio_button :address_option, 2 %>
+      <%= f.label :order_site_name, "新しい現場名" %>
+      <table>
+        <tr>
+          <td class='col-3'><%= f.label :site_name, "現場名" %></td>
+          <td class='col-9'><%= f.text_field :site_name, placeholder: "⚪︎⚪︎様邸" %></td>
+        </tr>
+        <tr>
+          <td class='col-3'><%= f.label :address, "住所" %></td>
+          <td class='col-9'><%= f.text_field :address, placeholder: "宮城県富谷市", class: "w-100" %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="text-center mt-3 mb-4">
+      <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

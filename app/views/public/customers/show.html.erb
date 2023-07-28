@@ -1,0 +1,35 @@
+<div class = "container my-4">
+  <h4><strong style="background-color:#EEEEEE;">マイページ</strong></h4>
+  <div class = "row">
+    <strong><p class = "mr-5" >登録情報</p></strong>
+  </div>
+
+  <div class = "row">
+    <table class ="table table-bordered">
+      <tr>
+        <td>工務店名</td>
+        <td>
+          <%= current_customer.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= current_customer.email %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class = "row">
+    <strong><p class = "mr-5" >現場名</p></strong>
+    <p class = "ml-3">
+    <%= link_to "一覧を見る", site_names_path, class:"btn btn-primary" %>
+    </p>
+  </div>
+  <div class = "row">
+    <strong><p class = "mr-5" >注文履歴</p></strong>
+    <p class = "ml-１">
+    <%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %>
+    </p>
+  </div>
+
+</div>

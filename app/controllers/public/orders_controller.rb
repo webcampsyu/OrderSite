@@ -4,7 +4,7 @@ class Public::OrdersController < ApplicationController
     @product_items = current_customer.product_items
     if @product_items.any?
       @order = Order.new
-      @site_names = current_customer.site_name
+      @site_names = current_customer.site_names
     else 
       redirect_to product_items_path
     end 
@@ -22,29 +22,31 @@ class Public::OrdersController < ApplicationController
         order_detail.save
       end 
       current_customer.product_items.destroy_all 
-      redirect_to thnks_orders_path
+      redirect_to thanks_orders_path
     end 
   end 
   
   def confirm
     @order = Order.new(order_params)
+  
     if params[:order][:site_name_option] == "0"
-       ship = SiteName.find(params[:order][site_name_id])
-       if current_customer.site_names.exists?
-         @order.site_name = ship.site_name
-         @order.address = ship.address
-         @order.name = ship.name
-       end 
-       elsif 
-        params [:order][:site_name_option] == "1"
-        @order.address = params[:order][:address]
-        @order.site_name = params[:order][:site_name]
-      else
-        render 'new'
-      end 
-      @product_items = current_customer.product_items.all
-      @order.customer_id = current_customer.id
-  end 
+      ship = SiteName.find(params[:order][:site_name_id])
+      if current_customer.site_names.exists?
+        @order.site_name = ship.site_name
+        @order.address = ship.address
+        @order.name = ship.name
+      end
+    elsif params[:order][:site_name_option] == "1"
+      @order.address = params[:order][:site_name]
+      @order.site_name = params[:order][:site_name]
+    else
+      render 'new'
+    end
+  
+    @product_items = current_customer.product_items.all
+    @order.customer_id = current_customer.id
+  end
+
   
   def thanks
   end 
@@ -60,8 +62,7 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:customer_id, :name, :site_name)
-    
-
+    params.require(:order).permit(:site_name, :address, :customer_id)
+  end
   
 end

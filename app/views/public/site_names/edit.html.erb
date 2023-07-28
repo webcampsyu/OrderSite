@@ -1,0 +1,20 @@
+<div class = "ml-5">
+  <h5 class = "ml-5 my-4"><strong style="background-color:#EEEEEE;">現場名編集</strong></h5>
+
+
+  <%= form_with model: @site_name do |f| %>
+  <table>
+  <tr>
+    <td><%= f.label :"現場名" %></td>
+    <td><%= f.text_field :name, placeholder: "⚪︎⚪︎様邸" %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><%= f.label :"住所" %></td>
+    <td><%= f.text_field :address, size:58, placeholder: "宮城県仙台市" %></td>
+    <td><%= f.submit "変更内容を保存", class:"btn btn-success" %></td>
+  </tr>
+  </table>
+  <% end %>
+
+</div> 
